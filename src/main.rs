@@ -2,7 +2,7 @@ use std::fs;
 use std::io;
 use std::os::unix::fs::MetadataExt;
 
-fn main() -> io::Result<()> {
+fn get_inodes() -> io::Result<()> {
     if let Ok(entries) = fs::read_dir(".") {
         for entry in entries {
             if let Ok(entry) = entry {
@@ -15,4 +15,11 @@ fn main() -> io::Result<()> {
         }
     }
     Ok(())
+}
+
+fn main() {
+    match get_inodes() {
+        Err(e) => println!("{:?}", e),
+        _ => (),
+    }
 }
