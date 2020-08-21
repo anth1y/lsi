@@ -1,3 +1,4 @@
+use std::env;
 use std::fs;
 use std::io;
 use std::os::unix::fs::MetadataExt;
@@ -18,7 +19,18 @@ fn get_inodes(fname: String) -> io::Result<()> {
 }
 
 fn main() {
-    // TODO: make fname mut and replace it with &args[1]
     let fname = ".";
-    get_inodes(fname.to_string());
+    let args: Vec<String> = env::args().collect();
+    match args.len() {
+        1 => {
+            get_inodes(fname.to_string());
+        }
+        2 => {
+            let fname = &args[1];
+            get_inodes(fname.to_string());
+        }
+        _ => {
+            println!("Not sure what you want me to do here!");
+        }
+    }
 }
