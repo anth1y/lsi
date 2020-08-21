@@ -29,8 +29,6 @@ fn main() {
             let fname = &args[1];
             get_inodes(fname.to_string());
         }
-        _ => {
-            println!("Not sure what you want me to do here!");
-        }
+        _ => (),
     }
 }
