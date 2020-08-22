@@ -31,6 +31,18 @@ ant@teletron2:~/Code/lsi$ target/debug/lsi /
 "/var" 2883585
 "/bin" 13
 
+==================================================
+
+omicron1-2:lsi ant$ target/debug/lsi
+./Cargo.toml 505916
+./target 505920
+./Cargo.lock 505915
+./README.md 505917
+./.gitignore 505914
+./.git 505831
+./src 505918
+
+
 ```
 
 ## TODO
