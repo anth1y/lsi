@@ -20,10 +20,12 @@ fn get_inodes(fname: String) -> io::Result<()> {
 
 fn main() {
     let fname = ".";
-    get_inodes(fname.to_string()).unwrap();
     let args: Vec<String> = env::args().collect();
     match args.len() {
         1 => {
+            get_inodes(fname.to_string()).unwrap();
+        }
+        2 => {
             let fname = &args[1];
             get_inodes(fname.to_string()).unwrap();
         }
